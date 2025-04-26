@@ -14,8 +14,21 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
-    @GetMapping
+    @GetMapping("/getAllStudents")
     public List<Student> getAllStudents() {
         return studentService.getAllStudents();
     }
+
+    @GetMapping("/{id}")
+    public Student getStudentByIdPath(@PathVariable Integer id) {
+        return studentService.getStudentById(id);
+    }
+
+    @GetMapping
+    public Student getStudentByIdRequestParam(@RequestParam Integer id) {
+        return studentService.getStudentById(id);
+    }
+
+
+
 }
