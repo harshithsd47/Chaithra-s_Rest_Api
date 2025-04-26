@@ -19,16 +19,19 @@ public class StudentController {
         return studentService.getAllStudents();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/getStudentById/{id}")
     public Student getStudentByIdPath(@PathVariable Integer id) {
         return studentService.getStudentById(id);
     }
 
-    @GetMapping
+    @GetMapping("/getStudentById")
     public Student getStudentByIdRequestParam(@RequestParam Integer id) {
         return studentService.getStudentById(id);
     }
 
-
+    @PostMapping("/saveStudent")
+    public Student saveStudent(@RequestBody Student student) {
+        return studentService.saveStudent(student);
+    }
 
 }
