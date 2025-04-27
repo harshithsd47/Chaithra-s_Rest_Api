@@ -38,4 +38,15 @@ public class StudentController {
     public List<Student> saveStudents(@RequestBody List<Student> students) {
         return studentService.saveStudents(students);
     }
+
+    @GetMapping("/getStudentByName")
+    public Student getStudentByName(@RequestParam String name) {
+        return studentService.getStudentByName(name);
+    }
+
+    @GetMapping("/getStudentByAge")
+    public List<Student> getStudentByAge(@RequestParam int age) {
+        return studentService.getStudentByAge(age);
+    }
+
 }

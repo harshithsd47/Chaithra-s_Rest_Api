@@ -29,4 +29,12 @@ public class StudentService {
         return studentRepository.saveAll(students);
     }
 
+    public Student getStudentByName(String name) {
+        return studentRepository.findByName(name);
+    }
+
+    public List<Student> getStudentByAge(int age) {
+        return studentRepository.findByAge(age);
+    }
+
 }
