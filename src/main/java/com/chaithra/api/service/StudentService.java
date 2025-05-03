@@ -37,4 +37,25 @@ public class StudentService {
         return studentRepository.findByAge(age);
     }
 
+    public Student deleteStudent(Integer id) {
+        Student student = studentRepository.findById(id).get();
+        studentRepository.deleteById(id);
+        return student;
+    }
+
+    public Student updateStudent(int rollno, Student student) {
+        Student existingStudent = studentRepository.findById(rollno).get();
+        existingStudent.setName(student.getName());
+        existingStudent.setAge(student.getAge());
+        existingStudent.setEmail(student.getEmail());
+        existingStudent.setPhone(student.getPhone());
+        existingStudent.setDoj(student.getDoj());
+        return studentRepository.save(existingStudent);
+    }
+
+    public Student updateStudent(Student student) {
+        return studentRepository.save(student);
+    }
+
+
 }

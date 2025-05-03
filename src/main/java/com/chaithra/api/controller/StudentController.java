@@ -49,4 +49,22 @@ public class StudentController {
         return studentService.getStudentByAge(age);
     }
 
+    @DeleteMapping("/deleteStudent/{id}")
+    public Student deleteStudent(@PathVariable Integer id) {
+        return studentService.deleteStudent(id);
+    }
+
+    @PutMapping("/updateStudent/{rollno}")
+    public Student updateStudent(@PathVariable int rollno, @RequestBody Student student) {
+        return studentService.updateStudent(rollno, student);
+    }
+
+    @PutMapping("/updateStudent")
+    public Student updateStudent(@RequestBody Student student) {
+        return studentService.updateStudent(student);
+    }
+
+
+
+
 }
